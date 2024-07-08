@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>欧拉函数和欧拉降幂</title>
+      <link href="/2024/07/08/hao-dong-xi/"/>
+      <url>/2024/07/08/hao-dong-xi/</url>
+      
+        <content type="html"><![CDATA[<h1 id="欧拉函数"><a href="#欧拉函数" class="headerlink" title="欧拉函数"></a>欧拉函数</h1><p>将 $\varphi(x)$ 表示为小于 x 并且与 x 互素的正整数个数<br>$$<br>x &#x3D; a_1^{b_1} \cdot a_2^{b_2} \cdot a_3^{b_3} \cdots a_n^{b_n}<br>$$<br>其中 $a_1, a_2, a_3, \cdots, a_n$ 是一组质数。</p><p>可得<br>$$<br>\varphi(x) &#x3D; (a_1 - 1) \cdot a_1^{b_1 - 1} \cdot (a_2 - 1) \cdot a_2^{b_2 - 1} \cdots (a_n - 1) \cdot a_n^{b_n - 1}<br>$$</p><p>$$<br>\varphi(x) &#x3D; x \cdot \left(1 - \frac{1}{a_1}\right) \left(1 - \frac{1}{a_2}\right) \cdots \left(1 - \frac{1}{a_n}\right)<br>$$</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">int euler(int x) &#123;    </span><br><span class="line">    int res = x;  </span><br><span class="line">    for (int i = 2; i * i &lt;= x; i++) &#123;  </span><br><span class="line">        if (x % i == 0) &#123;  </span><br><span class="line">            res = res / i * (i - 1);</span><br><span class="line">            while (x % i == 0) x /= i;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    if (x &gt; 1) res = res / x * (x - 1);  </span><br><span class="line">    return res;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br></pre></td></tr></table></figure><h1 id="欧拉降幂"><a href="#欧拉降幂" class="headerlink" title="欧拉降幂"></a>欧拉降幂</h1><p>若<br>$$<br>\gcd(a, n) &#x3D; 1<br>$$<br>根据欧拉定理<br>$$<br>a^{\varphi(n)} \equiv 1 \pmod{n}<br>$$</p><p>所以<br>$$<br>a^b \pmod{n} \equiv a^{t \cdot \varphi(n) + r} \pmod{n} \equiv a^r \pmod{n}<br>$$</p><p>如果 $\gcd(a, n) \neq 1$，则 $r &#x3D; b \pmod{n}$<br>$$<br>a^b \pmod{n} \equiv a^{r + \varphi(n)} \pmod{n}<br>$$</p><p>当 b 特别大的时候使用。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Markdown </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> math </tag>
+            
+            <tag> acm </tag>
+            
+            <tag> 数论 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>非完全平方数算数平方根是无理数</title>
       <link href="/2024/06/14/yi-xie-xiao-bi-ji/"/>
       <url>/2024/06/14/yi-xie-xiao-bi-ji/</url>
